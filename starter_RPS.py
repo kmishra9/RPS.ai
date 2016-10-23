@@ -109,12 +109,15 @@ def play_again():
     #Ensure the choice string is formatted properly (all lowercase letters)
     choice = ">>>>>>>>>>YOUR CODE HERE X<<<<<<<<<<"
     
+    #If the choice was _____, the user wants to play again
     if ">>>>>>>>>>YOUR CODE HERE X<<<<<<<<<<":
         return True
     
+    #If the choice was _____, the user does not want to play again
     elif ">>>>>>>>>>YOUR CODE HERE X<<<<<<<<<<":
         return False
     
+    #If the choice was anything else, it wasn't valid input
     else:
         print("Invalid input!\n")
         return play_again()
@@ -127,13 +130,13 @@ def play_again():
 #Start of Step 4 ###########################################################################################
 
 def basic_ai():
-    
+    #The three possible moves, represented as strings
     moves = [">>>>>YOUR CODE HERE X<<<<<", ">>>>>YOUR CODE HERE X<<<<<", ">>>>>YOUR CODE HERE X<<<<<"]
     
     #Randomly select an index from moves
     index = ">>>>>>>>>>YOUR CODE HERE X<<<<<<<<<<"
     
-    return moves[move]
+    return moves[index]
 
 #End of Step 4 #############################################################################################
 
@@ -142,21 +145,27 @@ def basic_ai():
 #Start of Step 5 ###########################################################################################
 
 def determine_winner(name, move, ai_move):
-    assert name == "rock" or name == "paper" or name == "scissors"
+    assert ( (move    == "rock" or move    == "paper" or move    == "scissors") and 
+             (ai_move == "rock" or ai_move == "paper" or ai_move == "scissors")
+           ), "Wrong move or ai_move argument passed in"
     
     #Tie case
     if move == ai_move:
         return "Tie, no one wins!"
     
+    #Win case 1
     elif move == "rock" and ai_move == "scissors":
         return name + " wins!"
     
+    #Win case 2
     elif ">>>>>>>>>>YOUR CODE HERE X<<<<<<<<<<":
         return name + " wins!"
-        
+    
+    #Win case 3    
     elif ">>>>>>>>>>YOUR CODE HERE X<<<<<<<<<<":
         return name + " wins!"
-        
+    
+    #Losing case
     else:
         return ">>>>>>>>>>YOUR CODE HERE X<<<<<<<<<<"
     
