@@ -35,15 +35,15 @@ Abstraction Reference Guide:
 def main():
     
     #Get the user's name
-    name = ">>>>>>>>>>YOUR CODE HERE X<<<<<<<<<<"
+    name = get_name()
     
-    continue_playing = ">>>>>>>>>>YOUR CODE HERE X<<<<<<<<<<"
+    continue_playing = True
 
     while continue_playing:
         
         play(name)
         
-        continue_playing = ">>>>>>>>>>YOUR CODE HERE X<<<<<<<<<<"
+        continue_playing = play_again()
 
 #End of Step 0 #############################################################################################
 
@@ -52,11 +52,12 @@ def main():
 #Start of Step 1 ###########################################################################################
 
 def get_name():
+    
     #Write out the prompt the user will see asking them to give the program their name
-    prompt = ">>>>>>>>>>YOUR CODE HERE X<<<<<<<<<<"
+    prompt = "Enter your name: "
     
     #Use a function to get the user's name (using the prompt)
-    name = ">>>>>>>>>>YOUR CODE HERE X<<<<<<<<<<"
+    name = input( prompt )
     
     #Return the name we "got" back to where this function was called
     return name 
