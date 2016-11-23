@@ -5,6 +5,8 @@ Developed by: Kunal Mishra
 
 Inspired by: http://www.nytimes.com/interactive/science/rock-paper-scissors.html?_r=0
 
+Dataset: https://github.com/bavent/Intelli-RPS/data/opening.txt
+
 Developed for: Beginning students in Computer Science
 
 To run: python3 agents.py
