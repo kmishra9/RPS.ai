@@ -1,7 +1,7 @@
 """
 Project: "Rock, Paper, Scissors!"
 
-Developed by: Kunal Mishra and Jesse Luo 
+Developed by: Kunal Mishra, Jesse Luo, and Jamie Delbick 
 
 Developed for: Beginning students in Computer Science
 

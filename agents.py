@@ -51,9 +51,9 @@ Abstraction Reference Guide:
             
     Agents - AI strategy functions that return between 0 and 2, inclusive
         
-        always_rock_strategy - always returns 0 (rock)
-        always_paper_strategy - always returns 1 (paper)
-        always_scissors_strategy - always returns 2 (scissors)
+        rock_strategy - always returns 0 (rock)
+        paper_strategy - always returns 1 (paper)
+        scissors_strategy - always returns 2 (scissors)
         
         simple_strategy - returns all moves with equal weight from 0, 1, 2 (rock, paper, scissors)
         
@@ -64,7 +64,7 @@ Abstraction Reference Guide:
         
         reflexive_strategy - Keeps track of all past opponent moves and adjusts weights/probability of playing each move 
         predictive_strategy - Attempts to predict what the user will play next, given its last move
-        reflexive_and_predictive_strategy - an optimal strategy that takes in a number N and keeps track of the sequence of past user moves of length N. Searches through all past history for sequences of length N to predict what the next move will be and counter it
+        reflexive_and_predictive_strategy - an optimal strategy that takes in a number N and keeps track of the sequence of past user moves of length N. Searches through all past history for sequences of length N to predict what the next move will be and counter it. Smaller numbers of N are recommended
 """
 
 from Simulator import *
@@ -103,15 +103,15 @@ def opposite_move(move):
 
 #Start of Step 0 ###########################################################################################
 
-def always_rock_strategy():
+def rock_strategy():
     return ">>>>>>>>>>YOUR CODE HERE 0-0<<<<<<<<<<"
 
 
-def always_paper_strategy():
+def paper_strategy():
     return ">>>>>>>>>>YOUR CODE HERE 0-1<<<<<<<<<<"
 
 
-def always_scissors_strategy():
+def scissors_strategy():
     return ">>>>>>>>>>YOUR CODE HERE 0-2<<<<<<<<<<"
 
 
