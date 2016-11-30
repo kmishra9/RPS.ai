@@ -31,24 +31,26 @@ Skill Level:
 
 Abstraction Reference Guide:
 
-	Simulator - A simulator takes in two strategies, an optional history object, and an optional simulation_count. 
+	Simulator - A simulator takes in two strategies, an optional history object, and an optional simulation_count. Returns a tuple of the format (strategy1_win_percentage, strategy2_win_percentage, tie_percentage)
         Note: A history argument does NOT need to be passed in unless the strategy requires it. simulation_count does not need to be changed from the default unless an instructor specifies (you can ignore it).
-        Note: Examples showing how to use the simulator are found in the Simulator.py file
+        Note: Examples use cases for the Simulator function can be found in the Simulator.py file
         
-	History - A History object takes in two strategies and keeps track of the history of those two strategies playing against each other in a Simulator 
+	History - A History object takes in two strategies and keeps track of the history of those two strategies playing against each other in a Simulator
+	    Note: Example use cases for the History data structure can be found in the History.py file
         
         get_chronological_history()
             Gets the history of moves by both strategies in chronological order (will not be able to tell which history is which)
-        
+            Data is returned as a list of two element tuples of this format: (strategy1_move, strategy2_move)
     
         get_opponent_chronological_history(own_strategy)
             Gets the history of moves by the opponent, in chronological order
             Arg own_strategy: the strategy that you're calling this from (used to determine the opponent)
+            Data is returned as a list of moves in the range [0, 2], inclusive of this format [opponent_strategy_move_1, opponent_strategy_move_2, ...]
     
     
         get_opponent_frequency(own_strategy)
             Given which strategy is calling to get the opponent's move frequency, the function returns the opponent's move frequency
-            Arg own_strategy: the function that is called within the simulator (used to determine the opponent)
+            Arg own_strategy: the strategy that you're calling this from (used to determine the opponent)
             Returns a tuple of frequencies in the format of (rock_frequency, paper_frequency, scissor_frequency)
             
     Agents - AI strategy functions that return between 0 and 2, inclusive
@@ -75,7 +77,10 @@ import random
 history = None
 
 def opposite_move(move):
-    #Returns a move that defeats the incoming move argument
+    """
+    Returns a move that defeats the incoming move argument
+    """
+    assert (0 <= move <= 2), "Invalid move was passed into opposite_move. Move must be in the range 0 <= move <= 2, where 0 represents Rock, 1 represents Paper, and 2 represents Scissors"
 
     #Returns Paper if move is Rock
     if move == 0:
@@ -96,11 +101,12 @@ def opposite_move(move):
 
 
 ##########################################################################
-# In this section, you'll be creating artificial intelligence agents that play RPS against each other!
-# Each agent you define should always return 0 (rock), 1 (paper), or 2 (scissors)
-# Three examples of the most simplistic strategies possible (always
-# choosing one move, no matter what)
-
+"""
+In this section, you'll be creating artificial intelligence agents that play RPS against each other!
+Each agent you define should always return 0 (rock), 1 (paper), or 2 (scissors)
+Three examples of the most simplistic strategies possible (always
+choosing one move, no matter what)
+"""
 
 
 #Start of Step 0 ###########################################################################################

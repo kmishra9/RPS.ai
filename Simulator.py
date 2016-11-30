@@ -3,7 +3,7 @@ import os
 strategy_output_msg = "Strategies must output an integer between 0 and 2, inclusive. Invalid output received."
 
 """
-A simulator takes in two strategies, an optional history object, and an optional simulation_count. 
+A simulator takes in two strategies, an optional history object, and an optional simulation_count. Returns a tuple of the format (strategy1_win_percentage, strategy2_win_percentage, tie_percentage)
 A history argument does NOT need to be passed in unless the strategy requires it. Simulation count does not need to be changed from the default unless an instructor specifies.
 
 

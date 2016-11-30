@@ -14,12 +14,13 @@ Important methods:
     
     get_opponent_chronological_history(own_strategy)
         Gets the history of moves by the opponent, in chronological order
+        Data is returned as a list of moves in the range [0, 2], inclusive of this format [opponent_strategy_move_1, opponent_strategy_move_2, ...]
         Arg own_strategy: the strategy that you're calling this from (used to determine the opponent)
     
     
     get_opponent_frequency(own_strategy)
         Given which strategy is calling to get the opponent's move frequency, the function returns the opponent's move frequency
-        Arg own_strategy: the function that is called within the simulator (used to determine the opponent)
+        Arg own_strategy: the strategy that you're calling this from (used to determine the opponent)
         Returns a tuple of frequencies in the format of (rock_frequency, paper_frequency, scissor_frequency)
     
 
@@ -29,13 +30,13 @@ Important methods:
 With history
 
     strategy1 = always_rock_strategy
-    strategy2 = biased_strategy(.9, 1)                  #A biased strategy that favors paper 90% of the time
+    strategy2 = biased_strategy(.9, 1)                                  #A biased strategy that favors paper 90% of the time
     history = History(strategy1, strategy2)             
     print( simulator(strategy1, strategy2, history) )
     
     print( history.get_chronological_history() )
     print( history.get_opponent_chronological_history(strategy1) )      #Gets Strategy 2's chronological_history of moves
-    print( history.get_opponent_frequency(strategy1) )                  #Gets Strategy 2's frequency of moves thus far
+    print( history.get_opponent_frequency(strategy1) )                  #Gets Strategy 2's frequency of moves
     
 """
 
@@ -96,7 +97,7 @@ class History():
 
     def get_chronological_history(self):
         """
-        Gets the history of moves by both strategies in chronological order (will not be able to tell which history is which)
+        Gets the history of moves (represented as a list of two element tuples) by both strategies in chronological order (will not be able to tell which history is which)
         """
         
         return self.chronological_history
