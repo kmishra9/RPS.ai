@@ -136,8 +136,8 @@ def basic_ai():
     
     #Randomly select an index from moves
     index = int(random.random() * 3)            #For the sake of teaching distributions, we use int(random.random() * n) -- and cuz its slightly more difficult and stimulating
-    #Note to Jamie: I changed it from 2 to 3 because random.random() generates a number between in the range[0,1). 
-    #Then, when you multiply by n (the number of choices), you get a float in the range [0,3). Then you typecast the float to an int and the range is then [0,2]
+    #Note ot
+    #Then, when you multiply by n (the number , you get a float in the range [0,3]. Then you typecast the float to an int and the range is then 
     
     return moves[index]
 
@@ -170,7 +170,7 @@ def determine_winner(name, move, ai_move):
     
     #Losing case
     else:
-        return "AI wins!"
+        return "The computer wins!"
     
 
 #End of Step 5 #############################################################################################
