@@ -26,14 +26,14 @@ Returns a tuple in the format of (strategy1 wins, strategy2 wins, ties)
 (2) With history
 
     strategy1 = always_rock_strategy
-    strategy2 = biased_strategy(.9, 1)                  #A biased strategy that favors paper 90% of the time
+    strategy2 = biased_strategy(.9, 1)                      #A biased strategy that favors paper 90% of the time
     history = History(strategy1, strategy2)             
     print( simulator(strategy1, strategy2, history) )
 
 (3) With history and simulation count
     
     strategy1 = always_rock_strategy
-    strategy2 = biased_strategy(.9, 1)                  #A biased strategy that favors paper 90% of the time
+    strategy2 = biased_strategy(.9, 1)                      #A biased strategy that favors paper 90% of the time
     history = History(strategy1, strategy2)             
     print( simulator(strategy1, strategy2, history, 500) )  #Runs only 500 simulated "games" of RPS, instead of 1 million 
 

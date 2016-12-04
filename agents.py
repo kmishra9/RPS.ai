@@ -207,7 +207,6 @@ def deterministic_strategy():
 def reflexive_strategy():
     # Allows strategies to utilize the history while simulating the strategies
     # against each other
-    # rock: 0, paper;1, scissors: 2
     rock_freq, paper_freq, scissor_freq = history.get_opponent_frequency( reflexive_strategy )
 
     ">>>>>>>>>>YOUR CODE HERE 4<<<<<<<<<<"
