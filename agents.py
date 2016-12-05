@@ -188,7 +188,7 @@ def deterministic_strategy():
     deterministic_order = [0, 1, 2, 1, 0]
     length_of_sequence = len(deterministic_order)
     
-    count = 0
+    index = 0
 
     def generate_deterministic_move():
         ">>>>>>>>>>YOUR CODE HERE 3<<<<<<<<<<"
