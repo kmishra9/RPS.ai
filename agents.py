@@ -76,31 +76,11 @@ from History import *
 import random
 history = None
 
-def opposite_move(move):
-    """
-    Returns a move that defeats the incoming move argument
-    """
-    assert (0 <= move <= 2), "Invalid move was passed into opposite_move. Move must be in the range 0 <= move <= 2, where 0 represents Rock, 1 represents Paper, and 2 represents Scissors"
-
-    #Returns Paper if move is Rock
-    if move == 0:
-        return 1
-    #Returns Scissors if move is Paper
-    if move == 1:
-        return 2
-    #Returns Rock if move is Scissors
-    if move == 2:
-        return 0
-
 
 ##########################################################################
 # DO NOT CHANGE ANYTHING ABOVE THIS LINE
 ##########################################################################
 
-
-
-
-##########################################################################
 """
 In this section, you'll be creating artificial intelligence agents that play RPS against each other!
 Each agent you define should always return 0 (rock), 1 (paper), or 2 (scissors)
@@ -205,12 +185,17 @@ def deterministic_strategy():
 
 #Start of Step 4 #############################################################################################
 
+def counter(move):
+    assert(type(move) == int), "Move argument is of wrong type"
+    assert(0<=move<=2), "Move argument is not within the proper range -- a move must be 0, 1, or 2"
+    ">>>>>>>>>>YOUR CODE HERE 4-0<<<<<<<<<<"
+    
+
 def reflexive_strategy():
-    # Allows strategies to utilize the history while simulating the strategies
-    # against each other
+    #Allows strategies to utilize the history while simulating the strategies against each other
     rock_freq, paper_freq, scissor_freq = history.get_opponent_frequency( reflexive_strategy )
 
-    ">>>>>>>>>>YOUR CODE HERE 4<<<<<<<<<<"
+    ">>>>>>>>>>YOUR CODE HERE 4-1<<<<<<<<<<"
 
 #End of Step 4 #############################################################################################
 
@@ -241,4 +226,4 @@ def reflexive_and_predictive_strategy():
 ############################################################################################################
 
 if __name__ == "__main__":
-    "Play around with strategies as you feel fit -- check out the examples in Simulator.py if you need help"
+    "Play around with strategies as you feel fit in this code  block -- check out the examples in Simulator.py if you need help"

@@ -7,6 +7,8 @@ def test_RPS():
 
 def test_Agents():
     return None
+    
+    "One test I definitely want to do for agents is creating a smart strategy that specifically can trash a reflexive_strategy that ALWAYS picks a move "
 
 """
 These are old tests -- we're going to need a full revamp, although obviously these 
