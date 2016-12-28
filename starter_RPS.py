@@ -26,6 +26,7 @@ Skill Level:
 
 Abstraction Reference Guide:
 """
+basic_ai=""
 
 #End of first section
 ############################################################################################################

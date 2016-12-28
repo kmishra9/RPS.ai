@@ -63,13 +63,13 @@ def simulator(strategy1, strategy2, history_storage=None, simulation_count=10000
         if strategy1_play == strategy2_play:
             ties += 1;
 
-        #Loss case for strategy1 (strategy1_play, strategy2_play) -> (0,2), (1,0), (2,1)
+        #Win case for strategy1 (strategy1_play, strategy2_play) -> (0,2), (1,0), (2,1)
         elif (strategy1_play - strategy2_play == 1) or (strategy1_play - strategy2_play == -2):
-            count2 += 1;
-
-        #Win case for strategy1 - if you did not tie and did not lose, you won
-        else:
             count1 += 1;
+
+        #Loss case for strategy1 - if you did not tie and did not win, you lost
+        else:
+            count2 += 1;
 
         #Adding the round to the history
         if history_storage is not None:
@@ -77,9 +77,9 @@ def simulator(strategy1, strategy2, history_storage=None, simulation_count=10000
 
 
     end = time.time()
-    os.system('clear');
     
     if not silent:
+        os.system('clear');
         print("Simulation of", simulation_count, "games of RPS with both strategies took", end-start, "seconds.")
 
     return (count1/simulation_count, count2/simulation_count, ties/simulation_count)

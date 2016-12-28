@@ -1,12 +1,11 @@
-
 from starter_RPS import * 
-
+from agents import *
 
 def test_RPS():
     return None
 
 def test_Agents():
-    prompt = "Please input which Step you'd like to test (0 through 5)"
+    prompt = "Please input which Step you'd like to test (0 through 5)\n"
     choice = input(prompt).strip()
     
     #Test cases for Step 0
@@ -29,17 +28,16 @@ def test_Agents():
         assert simulator(paper_strategy, scissors_strategy, simulation_count=1000, silent=True) == (0, 1, 0), "Simulation failed. Error in strategies"
         assert simulator(scissors_strategy, paper_strategy, simulation_count=1000, silent=True) == (1, 0, 0), "Simulation failed. Error in strategies"
         
-        assert simulator(rock_strategy, rock_strategy,          simulation_count=1000, silent=True) == 
+        assert (simulator(rock_strategy, rock_strategy,          simulation_count=1000, silent=True) == 
                simulator(paper_strategy, paper_strategy,        simulation_count=1000, silent=True) ==
                simulator(scissors_strategy, scissors_strategy,  simulation_count=1000, silent=True) == 
-               (0, 0, 1), "Simulation failed -- when run against each other, the strategies did not completely tie"
+               (0, 0, 1)), "Simulation failed -- when run against each other, the strategies did not completely tie"
                
         #Simple strategy should always win 1/3, lose 1/3, and tie 1/3 -- no matter the complexity of its opponent
-        sr = map(lambda x: round(x, 2), simulator(simple_strategy, rock_strategy,       silent=True))
-        sp = map(lambda x: round(x, 2), simulator(simple_strategy, paper_strategy,      silent=True))
-        ss = map(lambda x: round(x, 2), simulator(simple_strategy, scissors_strategy,   silent=True))
-        
-        assert sr == sp == ss and sr[0] == sr[1] == sr[2], "Simulation failed. Error in strategies"
+        sr = [round(x, 2) for x in simulator(simple_strategy, rock_strategy,       silent=True)]
+        sp = [round(x, 2) for x in simulator(simple_strategy, paper_strategy,      silent=True)]
+        ss = [round(x, 2) for x in simulator(simple_strategy, scissors_strategy,   silent=True)]
+        assert sr == sp == ss and sr[0] == sr[1] == sr[2] == .33, "Simulation failed. Error in strategies"
         
         print("Passed all tests -- Step 0 complete")
 
@@ -93,7 +91,7 @@ def tests_rps():
             
 if __name__ == "__main__":
     
-    prompt = "Type the number of the testing suite would you like to use: \n\t1) RPS\n\t2) AI Agents"
+    prompt = "Type the number of the testing suite would you like to use: \n\t1) RPS\n\t2) AI Agents\n"
     test_suite = input( prompt )
     
     if test_suite == '1':
