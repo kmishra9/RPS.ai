@@ -3,7 +3,7 @@ import os
 strategy_output_msg = "Strategies must output an integer between 0 and 2, inclusive. Invalid output received."
 
 """
-A simulator takes in two strategies, an optional history object, and an optional simulation_count. Returns a tuple of the format (strategy1_win_percentage, strategy2_win_percentage, tie_percentage)
+A simulator takes in two strategies, an optional history object, an optional simulation_count, and an optional silent boolean. Returns a tuple of the format (strategy1_win_percentage, strategy2_win_percentage, tie_percentage)
 A history argument does NOT need to be passed in unless the strategy requires it. Simulation count does not need to be changed from the default unless an instructor specifies.
 
 
@@ -11,8 +11,9 @@ Arg strategy1: a strategy that returns either a number between 0 and 2, inclusiv
 Arg strategy2: a strategy that returns either a number between 0 and 2, inclusive
 Arg history_storage: a history object that strategies can utilize to detect patterns and change their strategies (Defaults to None)
 Arg simulation_count: the number of simulations that will be run (Defaults to 1,000,000)
+Arg silent: determines whether the Simulator will be silent by not printing out anything (Defaults to False)
  
-Returns a tuple in the format of (strategy1 wins, strategy2 wins, ties)
+Returns a tuple in the format of (strategy1 win percentage, strategy2 win percentage, tie percentage)
 
 ===============EXAMPLES===============
 
@@ -40,7 +41,7 @@ Returns a tuple in the format of (strategy1 wins, strategy2 wins, ties)
 ===============EXAMPLES===============    
 """
 
-def simulator(strategy1, strategy2, history_storage=None, simulation_count=1000000):
+def simulator(strategy1, strategy2, history_storage=None, simulation_count=1000000, silent=False):
 
     start = time.time()
 
@@ -77,6 +78,8 @@ def simulator(strategy1, strategy2, history_storage=None, simulation_count=10000
 
     end = time.time()
     os.system('clear');
-    print("Simulation of", simulation_count, "games of RPS with both strategies took", end-start, "seconds.")
+    
+    if not silent:
+        print("Simulation of", simulation_count, "games of RPS with both strategies took", end-start, "seconds.")
 
     return (count1/simulation_count, count2/simulation_count, ties/simulation_count)

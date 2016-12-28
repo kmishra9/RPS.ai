@@ -7,6 +7,8 @@ Developed for: Beginning students in Computer Science
 
 To run: python3 starter_RPS.py
 
+Spec: https://goo.gl/cMvZfh
+
 Student Learning Outcomes:
     Various levels of comfort with:
         small projects and abstraction
@@ -88,7 +90,7 @@ def play(name, ai=basic_ai, silent=False):
     if ">>>>>>>>>>YOUR CODE HERE X<<<<<<<<<<":
         print(name + " plays " + move)
         print("AI plays " + ai_move)
-        print(winner + " wins!")
+        print(winner)
     
     return winner
 

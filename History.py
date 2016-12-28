@@ -11,6 +11,10 @@ Important methods:
         Gets the history of moves by both strategies in chronological order (will not be able to tell which history is which)
         Data is returned as a list of two element tuples of this format: (strategy1_move, strategy2_move)
         
+    get_own_chronological_history(own_strategy)
+        Gets the history of moves by the own_strategy, in chronological order
+        Data is returned as a list of moves in the range [0, 2], inclusive of this format [own_strategy_move_1, own_strategy_move_2, ...]
+        Arg own_strategy: the strategy that you're calling this from (used to determine which sequence of moves is "own")
     
     get_opponent_chronological_history(own_strategy)
         Gets the history of moves by the opponent, in chronological order
@@ -71,7 +75,6 @@ class History():
         self.chronological_history.append(x)
         self.length += 1
 
-
     def get_opponent_frequency(self, own_strategy):
         """
         Given which strategy is calling to get the opponent's move frequency, the function returns the opponent's move frequency
@@ -94,7 +97,6 @@ class History():
                 opponent_move_count[1]/len(self),
                 opponent_move_count[2]/len(self))
 
-
     def get_chronological_history(self):
         """
         Gets the history of moves (represented as a list of two element tuples) by both strategies in chronological order (will not be able to tell which history is which)
@@ -102,7 +104,21 @@ class History():
         
         return self.chronological_history
 
+    def get_own_chronological_history(self, own_strategy):
+         """
+        Gets the history of moves by the own_strategy, in chronological order
+        Arg own_strategy: the function that is called within the simulator (used to determine which sequence of moves is "own")
+        """
+        
+        #Uses the own_strategy passed in to find the index the opponent move will be at
+        if own_strategy == self.strategy1:
+            index = 0
+        else:
+            index = 1
 
+        #Returns a list of the opponent moves in chronological order
+        return [turn[index] for turn in self.get_chronological_history()]
+    
     def get_opponent_chronological_history(self, own_strategy):
         """
         Gets the history of moves by the opponent, in chronological order

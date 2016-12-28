@@ -3,11 +3,13 @@ Project: "RPS.ai"
 
 Developed by: Kunal Mishra 
 
+Spec: https://goo.gl/M3G44h 
+
 Inspired by: http://www.nytimes.com/interactive/science/rock-paper-scissors.html?_r=0
 
 Dataset: https://github.com/bavent/Intelli-RPS/data/opening.txt
 
-Developed for: Beginning students in Computer Science
+Developed for: beginning to intermediate students in Computer Science
 
 To run: python3 agents.py
 
@@ -31,7 +33,7 @@ Skill Level:
 
 Abstraction Reference Guide:
 
-	Simulator - A simulator takes in two strategies, an optional history object, and an optional simulation_count. Returns a tuple of the format (strategy1_win_percentage, strategy2_win_percentage, tie_percentage)
+	Simulator - A simulator takes in two strategies, an optional history object, an optional simulation_count, and an optional silent boolean. Returns a tuple of the format (strategy1_win_percentage, strategy2_win_percentage, tie_percentage)
         Note: A history argument does NOT need to be passed in unless the strategy requires it. simulation_count does not need to be changed from the default unless an instructor specifies (you can ignore it).
         Note: Examples use cases for the Simulator function can be found in the Simulator.py file
         
@@ -68,7 +70,7 @@ Abstraction Reference Guide:
         
         reflexive_strategy - Keeps track of all past opponent moves and adjusts weights/probability of playing each move 
         predictive_strategy - Attempts to predict what the user will play next, given its last move
-        reflexive_and_predictive_strategy - an optimal strategy that takes in a number N and keeps track of the sequence of past user moves of length N. Searches through all past history for sequences of length N to predict what the next move will be and counter it
+        two_way_predictive_strategy - Attempts to predict what the user will play next, given its last N-length sequence of moves and given the strategy's last N-length sequence of moves. Searches through all past history for matching sequences of length N to predict what the next move will be and counter it
 """
 
 from Simulator import *
@@ -80,13 +82,6 @@ history = None
 ##########################################################################
 # DO NOT CHANGE ANYTHING ABOVE THIS LINE
 ##########################################################################
-
-"""
-In this section, you'll be creating artificial intelligence agents that play RPS against each other!
-Each agent you define should always return 0 (rock), 1 (paper), or 2 (scissors)
-Three examples of the most simplistic strategies possible (always
-choosing one move, no matter what)
-"""
 
 
 #Start of Step 0 ###########################################################################################
@@ -187,7 +182,7 @@ def deterministic_strategy():
 
 def counter(move):
     assert(type(move) == int), "Move argument is of wrong type"
-    assert(0<=move<=2), "Move argument is not within the proper range -- a move must be 0, 1, or 2"
+    assert(0 <= move <= 2), "Move argument is not within the proper range -- a move must be 0, 1, or 2"
     ">>>>>>>>>>YOUR CODE HERE 4-0<<<<<<<<<<"
     
 
@@ -216,7 +211,7 @@ def predictive_strategy():
 ######################## Optional Challenge -- ATTEMPT AFTER FINISHING PROJECT #############################
 ############################################################################################################
 
-def reflexive_and_predictive_strategy():
+def two_way_predictive_strategy(N):
     ">>>>>>>>>>YOUR CODE HERE 6<<<<<<<<<<"
 
 
@@ -226,4 +221,4 @@ def reflexive_and_predictive_strategy():
 ############################################################################################################
 
 if __name__ == "__main__":
-    "Play around with strategies as you feel fit in this code  block -- check out the examples in Simulator.py if you need help"
+    "Play around with strategies as you feel fit in this code block -- check out the examples in Simulator.py if you need help"

@@ -6,6 +6,31 @@ def test_RPS():
     return None
 
 def test_Agents():
+    prompt = "Please input which Step you'd like to test (0 through 5)"
+    choice = input(prompt).strip()
+    
+    #Test cases for Step 0
+    if choice == "0":
+        
+        #Testing general output
+        for i in range(1000):
+            assert 0 == rock_strategy(), "rock_strategy is incorrect"
+            assert 1 == paper_strategy(), "paper_strategy is incorrect"
+            assert 2 == scissors_strategy(), "scissors_strategy is incorrect"
+            assert 0 <= simple_strategy() <= 2, "simple_strategy is incorrect"
+            
+        #Testing simulator runs
+        assert simulator(rock_strategy(), paper_strategy(), simulation_count=1000, silent=True) == (0, 1, 0), "Simulation failed. Error in strategies"
+        assert simulator(paper_strategy(), rock_strategy(), simulation_count=1000, silent=True) == (1, 0, 0), "Simulation failed. Error in strategies"
+        
+        assert simulator(scissors_strategy(), rock_strategy(), simulation_count=1000, silent=True) == (0, 1, 0), "Simulation failed. Error in strategies"
+        assert simulator(rock_strategy(), scissors_strategy(), simulation_count=1000, silent=True) == (1, 0, 0), "Simulation failed. Error in strategies"
+        
+        assert simulator(paper_strategy(), scissors_strategy(), simulation_count=1000, silent=True) == (0, 1, 0), "Simulation failed. Error in strategies"
+        assert simulator(scissors_strategy(), paper_strategy(), simulation_count=1000, silent=True) == (1, 0, 0), "Simulation failed. Error in strategies"
+        
+        
+        
     return None
     
     "One test I definitely want to do for agents is creating a smart strategy that specifically can trash a reflexive_strategy that ALWAYS picks a move "
@@ -63,7 +88,8 @@ if __name__ == "__main__":
     elif test_suite == '2':
         test_Agents()
     else:
-        print("Error, the testing suite you specified is not valid -- please run again and select 1 to test RPS or 2 to test AI Agents")
+        error_msg = "Error, the testing suite you specified is not valid -- please run again and select 1 to test RPS or 2 to test AI Agents"
+        print(error_msg)
     
     
     
