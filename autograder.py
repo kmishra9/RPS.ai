@@ -20,16 +20,29 @@ def test_Agents():
             assert 0 <= simple_strategy() <= 2, "simple_strategy is incorrect"
             
         #Testing simulator runs
-        assert simulator(rock_strategy(), paper_strategy(), simulation_count=1000, silent=True) == (0, 1, 0), "Simulation failed. Error in strategies"
-        assert simulator(paper_strategy(), rock_strategy(), simulation_count=1000, silent=True) == (1, 0, 0), "Simulation failed. Error in strategies"
+        assert simulator(rock_strategy, paper_strategy, simulation_count=1000, silent=True) == (0, 1, 0), "Simulation failed. Error in strategies"
+        assert simulator(paper_strategy, rock_strategy, simulation_count=1000, silent=True) == (1, 0, 0), "Simulation failed. Error in strategies"
         
-        assert simulator(scissors_strategy(), rock_strategy(), simulation_count=1000, silent=True) == (0, 1, 0), "Simulation failed. Error in strategies"
-        assert simulator(rock_strategy(), scissors_strategy(), simulation_count=1000, silent=True) == (1, 0, 0), "Simulation failed. Error in strategies"
+        assert simulator(scissors_strategy, rock_strategy, simulation_count=1000, silent=True) == (0, 1, 0), "Simulation failed. Error in strategies"
+        assert simulator(rock_strategy, scissors_strategy, simulation_count=1000, silent=True) == (1, 0, 0), "Simulation failed. Error in strategies"
         
-        assert simulator(paper_strategy(), scissors_strategy(), simulation_count=1000, silent=True) == (0, 1, 0), "Simulation failed. Error in strategies"
-        assert simulator(scissors_strategy(), paper_strategy(), simulation_count=1000, silent=True) == (1, 0, 0), "Simulation failed. Error in strategies"
+        assert simulator(paper_strategy, scissors_strategy, simulation_count=1000, silent=True) == (0, 1, 0), "Simulation failed. Error in strategies"
+        assert simulator(scissors_strategy, paper_strategy, simulation_count=1000, silent=True) == (1, 0, 0), "Simulation failed. Error in strategies"
         
+        assert simulator(rock_strategy, rock_strategy,          simulation_count=1000, silent=True) == 
+               simulator(paper_strategy, paper_strategy,        simulation_count=1000, silent=True) ==
+               simulator(scissors_strategy, scissors_strategy,  simulation_count=1000, silent=True) == 
+               (0, 0, 1), "Simulation failed -- when run against each other, the strategies did not completely tie"
+               
+        #Simple strategy should always win 1/3, lose 1/3, and tie 1/3 -- no matter the complexity of its opponent
+        sr = map(lambda x: round(x, 2), simulator(simple_strategy, rock_strategy,       silent=True))
+        sp = map(lambda x: round(x, 2), simulator(simple_strategy, paper_strategy,      silent=True))
+        ss = map(lambda x: round(x, 2), simulator(simple_strategy, scissors_strategy,   silent=True))
         
+        assert sr == sp == ss and sr[0] == sr[1] == sr[2], "Simulation failed. Error in strategies"
+        
+        print("Passed all tests -- Step 0 complete")
+
         
     return None
     
