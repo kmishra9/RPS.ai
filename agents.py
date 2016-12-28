@@ -104,19 +104,19 @@ def opposite_move(move):
 #Start of Step 0 ###########################################################################################
 
 def rock_strategy():
-    return ">>>>>>>>>>YOUR CODE HERE 0-0<<<<<<<<<<"
+    return 0
 
 
 def paper_strategy():
-    return ">>>>>>>>>>YOUR CODE HERE 0-1<<<<<<<<<<"
+    return 1
 
 
 def scissors_strategy():
-    return ">>>>>>>>>>YOUR CODE HERE 0-2<<<<<<<<<<"
+    return 2
 
 
 def simple_strategy():
-    return ">>>>>>>>>>YOUR CODE HERE 0-3<<<<<<<<<<"
+    return random.randint(0,2)
 
 #End of Step 0 #############################################################################################
 
@@ -234,3 +234,6 @@ def reflexive_and_predictive_strategy():
 
 if __name__ == "__main__":
     "Play around with strategies as you feel fit -- check out the examples in Simulator.py if you need help"
+    
+    for i in range(10):
+        print( simulator(simple_strategy, rock_strategy) )
