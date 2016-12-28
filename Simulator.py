@@ -40,7 +40,7 @@ Returns a tuple in the format of (strategy1 wins, strategy2 wins, ties)
 ===============EXAMPLES===============    
 """
 
-def simulator(strategy1, strategy2, history_storage=None, simulation_count=1000000):
+def simulator(strategy1, strategy2, history_storage=None, simulation_count=1000000, silent=False):
 
     start = time.time()
 
@@ -76,7 +76,9 @@ def simulator(strategy1, strategy2, history_storage=None, simulation_count=10000
 
 
     end = time.time()
-    os.system('clear');
-    print("Simulation of", simulation_count, "games of RPS with both strategies took", end-start, "seconds.")
+    
+    if not silent:
+        os.system('clear');
+        print("Simulation of", simulation_count, "games of RPS with both strategies took", end-start, "seconds.")
 
     return (count1/simulation_count, count2/simulation_count, ties/simulation_count)
