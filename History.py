@@ -105,7 +105,7 @@ class History():
         return self.chronological_history
 
     def get_own_chronological_history(self, own_strategy):
-         """
+        """
         Gets the history of moves by the own_strategy, in chronological order
         Arg own_strategy: the function that is called within the simulator (used to determine which sequence of moves is "own")
         """

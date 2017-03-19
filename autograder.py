@@ -1,8 +1,82 @@
 from starter_RPS import * 
 from agents import *
 
+
 def test_RPS():
-    return None
+    prompt = "Please input which Step you'd like to test (0 through 5)\n"
+    choice = input(prompt).strip()
+    name = "random name"
+    
+    #Test cases for Step 0
+    if choice == "0":
+        
+        #dummy functions to help run tests
+        def get_name():
+            return "random name"
+        
+        def play(name, ai):
+            return "random name"
+        
+        def play_again():
+            print(test)
+            return False
+            
+        assert main() == "test", "Step 0 is incorrect"
+        
+        print("Testing for step 0 complete")
+        
+    
+    
+    #Test cases for Step 1
+    if choice == "1":
+        origin_input = __builtins__.input
+        __builtins__.input = lambda x: name
+            
+        assert get_name() == name, "Step 1 is incorrect"
+        print("Testing for step 1 complete")
+    
+    #Test cases for Step 2
+    if choice == "2":
+        def determine_winner(ai_move, move, name):
+            return False
+        
+        #check general case
+        assert play(name, basic_ai) == False, "step 2 is incorrect"
+        
+        print("Testing for step 2 complete")
+    
+    #Test cases for Step 3
+    if choice == "3":
+       
+        origin_input = __builtins__.input
+        __builtins__.input = lambda x: "yes"
+        assert play_again() == True, "step 3 is incorrect"
+        
+        
+        origin_input = __builtins__.input
+        __builtins__.input = lambda x: "no"
+        assert play_again() == False, "step 3 is incorrect"
+        
+        print("Testing for step 3 complete")
+    
+    #Test cases for Step 4
+    if choice == "4":
+        assert basic_ai() == ("rock" or "paper" or "scissors"), "step 4 is incorrect"
+        
+        print("Testing for step 4 complete")
+    #Test cases for Step 5
+    if choice == "5":
+        assert determine_winner("random player", "rock", "rock") == "Tie, no one wins!"
+        assert determine_winner("random player", "rock", "paper") == "You lose!", "You should lose in this case"
+        assert determine_winner("random player", "scissors", "rock") == "You lose!", "You should lose in this case"
+        assert determine_winner("random player", "paper", "scissors") == "You lose!", "You should lose in this case"
+        assert determine_winner("random player", "paper", "rock") == "random player wins!", "You should win in this case"
+        assert determine_winner("random player", "rock", "scissors") == "random player wins!", "You should win in this case"
+        assert determine_winner("random player", "paper", "scissors") == "random player wins!", "You should win in this case"
+        print("Testing for step 3 complete")
+        
+    return None   
+        
 
 def test_Agents():
     prompt = "Please input which Step you'd like to test (0 through 5)\n"
@@ -46,48 +120,6 @@ def test_Agents():
     
     "One test I definitely want to do for agents is creating a smart strategy that specifically can trash a reflexive_strategy that ALWAYS picks a move "
 
-"""
-These are old tests -- we're going to need a full revamp, although obviously these 
-
-def tests_rps():
-    print("Testing...");
-
-    msg = "Which option would you like to test?\n";
-    msg += "0\t\tQuit\n";
-    msg += "1\t\tdetermine_winner\n";
-    msg += "2\t\tai_player\n";
-    msg += "3\t\tplay_again\n";
-
-    while True:
-
-        print(msg);
-
-        #Gets the key pressed
-        key = utils.get_key_press();
-
-        ###########################################
-        #Quit case ('0')
-        if key == 48:
-            quit();
-        elif key == 49:
-            assert s.determine_winner("test", "rock", "rock") == "Tie, no one wins!", "Your tie statement is not correct."
-            assert s.determine_winner("test", "rock", "scissors") == "test wins!", "Your user winning statement for rock > scissors is not correct."
-            assert s.determine_winner("test", "scissors", "paper") == "test wins!", "Your user winning statement for scissors > paper is not correct."
-            assert s.determine_winner("test", "paper", "rock") == "test wins!", "Your user winning statement for paper > rock is not correct."
-            assert s.determine_winner("test", "scissors", "rock") == "AI Player wins!", "Your AI winning statement for rock > scissors is not correct."
-            assert s.determine_winner("test", "rock", "paper") == "AI Player wins!", "Your AI winning statement for paper > rock is not correct."
-            assert s.determine_winner("test", "paper", "scissors") == "AI Player wins!", "Your AI winning statement for scissors > paper is not correct."
-            print("Tests passed.\n")
-        elif key == 50:
-            assert s.ai_player() in ["rock", "paper", "scissors"], "Your AI player is not returning a valid move."
-            print("Tests passed.\n")
-        elif key == 51:
-            assert s.play_again("yes") == True, "Play again is not returning True for yes."
-            assert s.play_again("no") == False, "Play again is not returning False for no."
-            print("Tests passed.\n")
-        else:
-            print("Test does not exist for this key. ")
-"""          
             
 if __name__ == "__main__":
     
