@@ -35,6 +35,7 @@ With history
 
     strategy1 = always_rock_strategy
     strategy2 = biased_strategy(.9, 1)                                  #A biased strategy that favors paper 90% of the time
+    
     history = History(strategy1, strategy2)             
     print( simulator(strategy1, strategy2, history) )
     

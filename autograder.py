@@ -1,5 +1,7 @@
 from starter_RPS import * 
 from agents import *
+import Simulator
+import History
 
 
 def test_RPS():
@@ -103,8 +105,8 @@ def test_Agents():
         assert simulator(scissors_strategy, paper_strategy, simulation_count=1000, silent=True) == (1, 0, 0), "Simulation failed. Error in strategies"
         
         assert (simulator(rock_strategy, rock_strategy,          simulation_count=1000, silent=True) == 
-               simulator(paper_strategy, paper_strategy,        simulation_count=1000, silent=True) ==
-               simulator(scissors_strategy, scissors_strategy,  simulation_count=1000, silent=True) == 
+                simulator(paper_strategy, paper_strategy,        simulation_count=1000, silent=True) ==
+                simulator(scissors_strategy, scissors_strategy,  simulation_count=1000, silent=True) == 
                (0, 0, 1)), "Simulation failed -- when run against each other, the strategies did not completely tie"
                
         #Simple strategy should always win 1/3, lose 1/3, and tie 1/3 -- no matter the complexity of its opponent
@@ -114,11 +116,76 @@ def test_Agents():
         assert sr == sp == ss and sr[0] == sr[1] == sr[2] == .33, "Simulation failed. Error in strategies"
         
         print("Passed all tests -- Step 0 complete")
-
-        
-    return None
     
-    "One test I definitely want to do for agents is creating a smart strategy that specifically can trash a reflexive_strategy that ALWAYS picks a move "
+    #"One test I definitely want to do for agents is creating a smart strategy that specifically can trash a reflexive_strategy that ALWAYS picks a move "
+    if choice == "1":
+
+        always_rock = biased_strategy(1, 0)
+        always_paper = biased_strategy(1, 1)
+        always_scissors = biased_strategy(1, 2)
+        
+        
+        assert simulator(rock_strategy, always_rock, simulation_count = 1000, silent = True) == (0, 0, 1), "Simulation Failed: biased_strategy(1, 0) does not always return rock" 
+        assert simulator(paper_strategy, always_paper, simulation_count = 1000, silent = True) == (0, 0, 1), "Simulation Failed: biased_strategy(1, 0) does not always return paper"
+        assert simulator(scissors_strategy, always_scissors, simulation_count = 1000, silent = True) == (0, 0, 1), "Simulation Failed: biased_strategy(1, 0) does not always return scissors"
+        
+        never_rock = biased_strategy(0, 0)
+        never_paper = biased_strategy(0, 1)
+        never_scissors = biased_strategy(0, 2)
+        
+        never_rock_results = [never_rock for i in range(1000)]
+        never_paper_results = [never_paper for i in range(1000)]
+        never_scissors_results = [never_scissors for i in range(1000)]
+
+        assert 0 not in never_rock_results, "Error: Invalid value generation for biased_strategy(0, 0)"
+        assert 1 not in never_paper_results, "Error: Invalid value generation for biased_strategy(0, 1)"
+        assert 2 not in never_scissors_results, "Error: Invalid value generation for biased_strategy(0, 2)"
+        print("Passed all tests -- Step 1 complete")
+
+    if choice == "2":
+        
+        simple = triple_biased_strategy(0.333, 0.333, 0.333)
+        simple_test = simulator(simple_strategy, simple, simulation_count= 100000, silent = True)
+        assert simple_test[0] >= 0.32 and simple_test[0] <= 0.34 and simple_test[1] >= 0.32 and simple_test[1] <= 0.34 and simple_test[2] >= 0.32 and simple_test[2] <= 0.34, "Error"
+
+        chance = [i / 1000 for i in range(1000)]
+        #Maybe make a function to do this to efficiently assign paper_chance and scissors_chance to i?
+        for i in chance:
+            rock_chance = i
+            paper_chance = round((1 - i) / 2, 3)
+            scissors_chance = paper_chance
+            strat = triple_biased_strategy(rock_chance, paper_chance, scissors_chance)
+            results = [strat() for _ in range(1000)]
+            rock_results = len([i for i in results if i == 0])
+            paper_results = len([i for i in results if i == 1])
+            scissors_results = len([i for i in results if i == 2])
+            assert rock_results / len(results) >= rock_chance - 0.01 or rock_results / len(results) <= rock_chance + 0.01, "Check when you're returning rock"
+            assert paper_results / len(results) >= paper_chance - 0.01 or paper_results / len(results) <= paper_chance + 0.01, "Check when you're returning paper"
+            assert scissors_results / len(results) >= scissors_chance - 0.01 or scissors_results / len(results) <= scissors_chance + 0.01, "Check when you're returing scissors"
+            #Try to incorporate History object
+        print("Passed all tests -- Step 2 complete")
+    
+    
+    if choice == "3":
+        strat = deterministic_strategy()
+        deterministic_order = [0, 1, 2, 1, 0]
+        simple_test_results = []
+        for _ in range(len(deterministic_order)):
+            simple_test_results.append(strat())
+        assert simple_test_results == deterministic_order, "Failed simple test"
+
+        for _ in range(10000):
+            random_test_results = []
+            strategy = deterministic_strategy()
+            turns = random.randint(1, 1000)
+            for _ in range(turns):
+                random_test_results.append(strategy())
+            answer = deterministic_order * (turns // len(deterministic_order))
+            for i in range(turns - len(answer)):
+                answer.append(deterministic_order[i])
+
+            assert answer == random_test_results, "Error"
+        print("Passed all tests -- Step 3 complete")
 
             
 if __name__ == "__main__":
