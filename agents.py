@@ -1,7 +1,7 @@
 """
 Project: "RPS.ai"
 
-Developed by: Kunal Mishra 
+Developed by: Kunal Mishra and Sathvik Nair 
 
 Spec: https://goo.gl/M3G44h 
 
@@ -28,7 +28,7 @@ Student Learning Outcomes:
 Skill Level:
     Assumed knowledge of language and concepts, but without mastery of them. Some comfort with language syntax and concepts is assumed at this point, however, and strong critical thinking and abstraction skills are necessary.
     ~20+ hours of experience/class/lecture coming into this project
-    ~Calibrated at around the same difficulty level of the "strategies" portion of UC Berkeley's 61A project, Hog and slightly above Project 1, "2048 in Python!"
+    ~Calibrated at around the same difficulty level of the "strategies" portion of UC Berkeley's 61A project, Hog and slightly above Paradigm Shift's Nifty project, "2048 in Python!"
 
 
 Abstraction Reference Guide:

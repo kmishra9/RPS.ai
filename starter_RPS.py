@@ -1,7 +1,7 @@
 """
 Project: "Rock, Paper, Scissors!"
 
-Developed by: Kunal Mishra, Jesse Luo, and Jamie Delbick 
+Developed by: Kunal Mishra, Jesse Luo, Jamie Delbick, Sathvik Nair, and Clement Ng  
 
 Developed for: Beginning students in Computer Science
 
@@ -22,7 +22,7 @@ Student Learning Outcomes:
 Skill Level:
     assumed knowledge of language and concepts, but without mastery or even comfortability with them
     ~3-6 hours of experience/class/lecture necessary, coming into this project (for RPS) and 25-35 hours (for the AI extensions)
-    ~Calibrated at well below the difficulty level of UC Berkeley's 61A project, Hog and somewhat below "2048 in Python!"
+    ~Calibrated at well below the difficulty level of UC Berkeley's 61A project, Hog and somewhat below Paradigm Shift's Nifty project, "2048 in Python!"
 
 Abstraction Reference Guide:
     main                    - responsible for starting and running the game

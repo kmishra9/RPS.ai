@@ -144,7 +144,7 @@ def test_Agents():
 
     if choice == "2":
         
-        simple = triple_biased_strategy(0.333, 0.333, 0.333)
+        simple = triple_biased_strategy(1/3, 1/3, 1/3)
         simple_test = simulator(simple_strategy, simple, simulation_count= 100000, silent = True)
         assert simple_test[0] >= 0.32 and simple_test[0] <= 0.34 and simple_test[1] >= 0.32 and simple_test[1] <= 0.34 and simple_test[2] >= 0.32 and simple_test[2] <= 0.34, "Error"
 
