@@ -188,11 +188,11 @@ def counter(move):
 
 def reflexive_strategy():
     #Allows strategies to utilize the history while simulating the strategies against each other
-    rock_freq, paper_freq, scissor_freq = history.get_opponent_frequency( reflexive_strategy )
+    rock_freq, paper_freq, scissor_freq = history.get_opponent_frequency( reflexive_strategy)
+    
     ">>>>>>>>>>YOUR CODE HERE 4-1<<<<<<<<<<"
 
 #End of Step 4 #############################################################################################
-
 
 
 #Start of Step 5 #############################################################################################

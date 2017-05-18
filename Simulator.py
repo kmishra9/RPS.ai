@@ -45,9 +45,6 @@ def simulator(strategy1, strategy2, history_storage=None, simulation_count=10000
 
     start = time.time()
 
-    #Ensuring strategies output integers
-    assert type(strategy1()) == type(strategy2()) == int, strategy_output_msg
-
     #Counts of each strategy's wins, losses, and ties
     count1, count2, ties = 0, 0, 0
 
@@ -56,8 +53,8 @@ def simulator(strategy1, strategy2, history_storage=None, simulation_count=10000
         strategy1_play, strategy2_play = strategy1(), strategy2()
 
         #Strategy output check
-        if not (0 <= strategy1_play <= 2) or not (0 <= strategy2_play <= 2):
-            assert False, strategy_output_msg
+        if not type(strategy1_play) == type(strategy2_play) == int or not (0 <= strategy1_play <= 2) or not (0 <= strategy2_play <= 2):
+            assert False, strategy_output_msg + " Strategy1 out: " + str(strategy1_play) + " Strategy2 out: " + str(strategy2_play)
 
         #Tie case
         if strategy1_play == strategy2_play:

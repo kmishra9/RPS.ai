@@ -1,5 +1,6 @@
 from starter_RPS import * 
-from agents import *
+#from agents import *
+import agents
 import Simulator
 import History
 
@@ -186,6 +187,23 @@ def test_Agents():
 
             assert answer == random_test_results, "Error"
         print("Passed all tests -- Step 3 complete")
+    
+    if choice == "4":
+        for _ in range(2):
+            #rates = np.random.random(3)
+            #rates /= rates.sum()
+            rates = (.1, .1, .8)
+            
+            strategy1 = agents.triple_biased_strategy(rates[0], rates[1], rates[2])
+            strategy2 = agents.reflexive_strategy
+            
+            agents.history = History.History(strategy1, strategy2)
+            
+            print(Simulator.simulator(strategy1, strategy2, history_storage = agents.history, simulation_count = 5, silent = True))
+            break
+            #Print statements to properly design a test
+        
+        print("Passed all tests -- Step 4 complete")
 
             
 if __name__ == "__main__":
