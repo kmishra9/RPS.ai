@@ -32,7 +32,7 @@ Abstraction Reference Guide:
     Game Functions:
         play                - simulates one round of play
         play_again          - returns "True" if user wants to play again and "False" if not
-        determine_winner    - determines the winner between the user and computer based on each players' move
+        determine_winner    - determines the winner between the user and computer based on each of the players’ moves
         get_name            - gets user's name based on input
         basic_ai            - ai function that randomly choices move
 """

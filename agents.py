@@ -71,7 +71,7 @@ Abstraction Reference Guide:
 
         reflexive_strategy - Keeps track of all past opponent moves and adjusts weights/probability of playing each move
         predictive_strategy - Attempts to predict what the user will play next, given its last move
-        two_way_predictive_strategy - Attempts to predict what the user will play next, given its last N-length sequence of moves and given the strategy's last N-length sequence of moves. Searches through all past history for matching sequences of length N to predict what the next move will be and counter it
+        two_way_predictive_strategy - Attempts to predict what the user will play next, given its last N-length sequence of moves and given the opposing strategy's last N-length sequence of moves. Searches through all past history for matching sequences of length N to predict what the next move will be and counter it
 """
 
 from Simulator import *
