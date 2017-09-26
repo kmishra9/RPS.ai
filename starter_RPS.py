@@ -33,16 +33,8 @@ Abstraction Reference Guide:
         play                - simulates one round of play
         play_again          - returns "True" if user wants to play again and "False" if not
         determine_winner    - determines the winner between the user and computer based on each players' move
-
-    User Helper Functions:
         get_name            - gets user's name based on input
-        move                - variable representing the user's move
-        silent              - boolean used to print out steps of the game
-
-    AI Functions:
         basic_ai            - ai function that randomly choices move
-        ai_move             - variable representing the ai's move
-        ai                  - represents the ai used in a round of the game
 """
 
 import random
