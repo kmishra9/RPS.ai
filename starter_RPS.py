@@ -50,10 +50,10 @@ def get_name():
     # Write out the prompt the user will see asking them to give the program their name
     prompt = ">>>>>>>>>>YOUR CODE HERE 0-0<<<<<<<<<<"
 
-    #Use a function to get the user's name (using the prompt)
+    # Use a function to get the user's name (using the prompt)
     name = ">>>>>>>>>>YOUR CODE HERE 0-1<<<<<<<<<<"
 
-    #Return the name we "got" back to where this function was called
+    # Return the name we "got" back to where this function was called
     return name
 
 # End of Step 0 #############################################################################################
@@ -137,7 +137,7 @@ def determine_winner(name, move, ai_move):
 
 
 
-#Start of Step 4 ###########################################################################################
+# Start of Step 4 ###########################################################################################
 
 def play(name, ai=basic_ai, silent=False):
 
