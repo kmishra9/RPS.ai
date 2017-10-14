@@ -85,7 +85,7 @@ history = None
 ############################################################################################################
 
 
-#Start of Step 0 ###########################################################################################
+# Start of Step 0 ###########################################################################################
 
 def rock_strategy():
     return ">>>>>>>>>>YOUR CODE HERE 0-0<<<<<<<<<<"
@@ -102,11 +102,11 @@ def scissors_strategy():
 def simple_strategy():
     return ">>>>>>>>>>YOUR CODE HERE 0-3<<<<<<<<<<"
 
-#End of Step 0 #############################################################################################
+# End of Step 0 #############################################################################################
 
 
 
-#Start of Step 1 ###########################################################################################
+# Start of Step 1 ###########################################################################################
 
 def biased_strategy(bias, biased_move):
     """
@@ -118,19 +118,19 @@ def biased_strategy(bias, biased_move):
 
     def generate_biased_move():
         generated = int(random.random() * range_size)
-        ">>>>>>>>>>YOUR CODE HERE 1<<<<<<<<<<"
+        ">>>>>>>>>>YOUR CODE HERE 1-0<<<<<<<<<<"
 
 
 
 
-    #Returns the function that will actually do the generation but doesn't need the arguments passed in each time
+    # Returns the function that will actually do the generation but doesn't need the arguments passed in each time
     return generate_biased_move     #Do not change
 
-#End of Step 1 #############################################################################################
+# End of Step 1 #############################################################################################
 
 
 
-#Start of Step 2 ###########################################################################################
+# Start of Step 2 ###########################################################################################
 
 def triple_biased_strategy(rock_bias, paper_bias, scissor_bias):
     """
@@ -145,41 +145,41 @@ def triple_biased_strategy(rock_bias, paper_bias, scissor_bias):
 
     def generate_biased_move():
         generated = int(random.random() * range_size)
-        ">>>>>>>>>>YOUR CODE HERE 2<<<<<<<<<<"
+        ">>>>>>>>>>YOUR CODE HERE 2-0<<<<<<<<<<"
 
 
 
 
-    #Returns the function that will actually do the generation but doesn't need the arguments passed in each time
-    return generate_biased_move     #Do not change
+    # Returns the function that will actually do the generation but doesn't need the arguments passed in each time
+    return generate_biased_move     # Do not change
 
-#End of Step 2 #############################################################################################
+# End of Step 2 #############################################################################################
 
 
 
-#Start of Step 3 ###########################################################################################
+# Start of Step 3 ###########################################################################################
 
 def deterministic_strategy():
-    #Plays rock, paper, scissors, paper, rock in that sequence, over and over
+    # Plays rock, paper, scissors, paper, rock in that sequence, over and over
     deterministic_order = [0, 1, 2, 1, 0]
     length_of_sequence = len(deterministic_order)
 
     index = 0
 
     def generate_deterministic_move():
-        ">>>>>>>>>>YOUR CODE HERE 3<<<<<<<<<<"
+        ">>>>>>>>>>YOUR CODE HERE 3-0<<<<<<<<<<"
 
 
 
 
-    #Returns the function that will actually do the generation but doesn't need the arguments passed in each time
+    # Returns the function that will actually do the generation but doesn't need the arguments passed in each time
     return generate_deterministic_move      #Do not change
 
-#End of Step 3 #############################################################################################
+# End of Step 3 #############################################################################################
 
 
 
-#Start of Step 4 ###########################################################################################
+# Start of Step 4 ###########################################################################################
 
 def counter(move):
     assert(type(move) == int), "Move argument is of wrong type"
@@ -188,21 +188,21 @@ def counter(move):
 
 
 def reflexive_strategy():
-    #Allows strategies to utilize the history while simulating the strategies against each other
-    rock_freq, paper_freq, scissor_freq = history.get_opponent_frequency( reflexive_strategy)
+    # Allows strategies to utilize the history while simulating the strategies against each other
+    rock_freq, paper_freq, scissor_freq = history.get_opponent_frequency(reflexive_strategy)
     ">>>>>>>>>>YOUR CODE HERE 4-1<<<<<<<<<<"
 
-#End of Step 4 #############################################################################################
+# End of Step 4 #############################################################################################
 
 
-#Start of Step 5 ###########################################################################################
+# Start of Step 5 ###########################################################################################
 
 def predictive_strategy():
-    opp_history = history.get_opponent_chronological_history( predictive_strategy )
+    opp_history = history.get_opponent_chronological_history(predictive_strategy)
     size_history = len(opp_history)
-    ">>>>>>>>>>YOUR CODE HERE 5<<<<<<<<<<"
+    ">>>>>>>>>>YOUR CODE HERE 5-0<<<<<<<<<<"
 
-#End of Step 5 #############################################################################################
+# End of Step 5 #############################################################################################
 
 
 ############################################################################################################
@@ -210,7 +210,7 @@ def predictive_strategy():
 ############################################################################################################
 
 def two_way_predictive_strategy(N):
-    ">>>>>>>>>>YOUR CODE HERE 6<<<<<<<<<<"
+    ">>>>>>>>>>YOUR CODE HERE 6-0<<<<<<<<<<"
 
 
 
@@ -219,4 +219,7 @@ def two_way_predictive_strategy(N):
 ############################################################################################################
 
 if __name__ == "__main__":
-    "Play around with strategies as you feel fit in this code block -- check out the examples in Simulator.py if you need help. You can run this code by typing python3 agents.py in your terminal"
+    """
+    Play around with strategies as you feel fit in this code block -- check out the examples in Simulator.py 
+    if you need help. You can run this code by typing python3 agents.py in your terminal
+    """
