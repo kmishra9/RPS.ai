@@ -114,6 +114,7 @@ def biased_strategy(bias, biased_move):
     Arg biased_move: a number between 0 and 2, inclusive, signifiying which move the strategy should be biased towards
     @Return: a function that can be called by the simulator
     """
+    assert 0 <= bias <= 1 and 0 <= biased_move <= 2, "Arguments to biased_strategy are invalid"
     range_size = 100
 
     def generate_biased_move():
@@ -139,7 +140,7 @@ def triple_biased_strategy(rock_bias, paper_bias, scissor_bias):
     Arg scissors_bias: a float between 0 and 1, denoting the percentage of the time scissors should be played
     @Return: a function that can be called by the simulator
     """
-    assert( round(rock_bias + paper_bias + scissor_bias, 5) == 1.0 ), "All three biases must add up to 1"
+    assert( round(rock_bias + paper_bias + scissor_bias) == 1.0 ), "All three biases must add up to 1"
 
     range_size = 100
 
